@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no,user-scalable=no">
+
+	<title>MyLibrary</title>
+<!--css-->
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+<!--js-->
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  	crossorigin="anonymous"></script>
+  	<script type="text/javascript" src="./js/default.js"></script>
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	
+<!--jquery cdn-->
+	<!--<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>-->
+
+</head>
+<body data-spy="scroll" data-target="#mynavbar">
+
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" id="mynavbar">
+		<div class="container nav1">
+			<div class="navbar-header">
+<!--menu span-->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+<!--Logo-->
+				<div class="navbar-brand logo" style="color:#E0FFFF;font-size:28px;">MyLibrary</div>
+			</div>
+
+<!--menu header-->
+	
+			<div class="collapse navbar-collapse border navbar-inverse" id="navbar-collapse">
+			<a href="#" class="btn btn-warning btn-lg navbar-right login-marg" role="button" data-toggle="modal" data-target="#login-modal">Login</a>
+				<ul class="nav navbar-nav list-inline">
+					<li><a href="#home" style="color:#e0ffff;">Home</a></li>
+					<li><a href="#books" style="color:#e0ffff;">Books</a></li>
+					<li><a href="#about" style="color:#e0ffff;">About Us</a></li>
+					<li><a href="#feedback" style="color:#e0ffff;">Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+<!--Login form-->
+	
+	<div class="container">
+		<section>
+			<!-- BEGIN # MODAL LOGIN -->
+<div class="modal fade modal-bg" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header nav navbar-inverse" align="center">
+					<button type="button" class="close" style="background-color:white;" data-dismiss="modal" aria-label="Close">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div>
+				<div id="div-forms">
+					<img src="./images/DSC_6976-opt.jpg" class="login-logo" alt="logo">
+                	
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+		                <div class="modal-body">
+				       		<h3><center>Login Portal</center></h3>
+				       		<label for="username"><strong>Username:</strong></label>
+				       		<input id="username" class="form-control" type="text" placeholder="Enter your Username" required></br>
+				    		<label for="pwd"><strong>Password:</strong></label>
+				    		<input id="pwd" class="form-control" type="password" placeholder="Enter Password" required>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                            </div>
+        		    	</div>
+				        <div class="modal-footer">
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                            </div>
+				    	    <div>
+                                <button id="login_lost_btn" type="button" class="btn btn-link"><b>Forgot Password?</b></button>
+                                <button id="login_register_btn" type="button" class="btn btn-link"><b>Sign Up</b></button>
+                            </div>
+				        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                    
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+    	    		    <div class="modal-body">
+		    				<div id="div-lost-msg">
+                                <label for="lost_email">Email</label>
+                            </div>
+		    				<input id="lost_email" class="form-control" type="text" placeholder="Enter your E-Mail ID" required>
+            			</div>
+		    		    <div class="modal-footer">
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                            </div>
+                            <div>
+                                <button id="lost_login_btn" type="button" class="btn btn-link"><b>Log In</b></button>
+                                <button id="lost_register_btn" type="button" class="btn btn-link"><b>Sign Up</b></button>
+                            </div>
+		    		    </div>
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    
+                    
+                   <!-- Begin | Register Form -->
+                    <form id="register-form" style="display:none;">
+            		    <div class="modal-body">
+            		    	<h3><center>Create Account</center></h3>
+		    				<label for="reg_username"><strong>Username</strong></label>
+		    				<input id="reg_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+                            <label for="reg_email"><strong>Email</strong></label>
+                            <input id="reg_email" class="form-control" type="text" placeholder="E-Mail" required>
+                            <label for="reg_pwd"><strong>Password</strong></label>
+                            <input id="reg_pwd" class="form-control" type="password" placeholder="Password" required>
+            			</div>
+		    		    <div class="modal-footer">
+                            <div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                            </div>
+                            <div>
+                                <button id="register_login_btn" type="button" class="btn btn-link"><b>Log In</b></button>
+                                <button id="register_lost_btn" type="button" class="btn btn-link"><b>Forgot Password?</b></button>
+                            </div>
+		    		    </div>
+                    </form>
+                   <!-- End | Register Form -->
+               </div>
+                <!-- End # DIV Form -->
+			</div>
+		</div>
+	</div>
+    <!-- END # MODAL LOGIN -->
+		</section>
+	</div>
+
+
+
+<!--Hompage-->
+	<div class="container contain">
+		<section>			
+			<div class="page-header text-center text-info shadow" id="home">
+				<h1><b>Welcome to the world of books</b></h1>	
+			</div>
+			<div class="carousel slide" id="screenshot-carousel" data-ride="carousel">
+				<ol class="carousel indicators hide">
+					<li data-target="#screenshot-carousel" data-slide.to="0" class="active"></li>
+					<li data-target="#screenshot-carousel" data-slide.to="1"></li>
+					<li data-target="#screenshot-carousel" data-slide.to="2"></li>
+					<li data-target="#screenshot-carousel" data-slide.to="3"></li>
+					<li data-target="#screenshot-carousel" data-slide.to="4"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="./images/20171229133819.jpg" class="res" alt="img">
+						<div class="carousel-caption capt">
+							<p>Always</br>READ SOMETHING</br>that wil make you</br> GOOD LOOK</br>if you die in the</br>MIDDLE of it.</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="./images/20171229133759.jpg" class="res" alt="img">
+						<div class="carousel-caption capt">
+							<p>READING</br>is a conversation</br>all BOOKS TALK,</br>but a GOOD BOOK</br>listen as well.</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="./images/20171229133842.jpg" class="res" alt="img">
+						<div class="carousel-caption capt">
+							<p>The world is a</br>BOOK and those</br>that do not TRAVEL</br>read only a page.</p>
+						</div>
+					</div>
+					<a href="#screenshot-carousel" class="left carousel-control" data-slide="prev">
+				 	<span class="glyphicon glyphicon-chevron-left"></span>
+				 </a>
+				 <a href="#screenshot-carousel" class="right carousel-control" data-slide="next">
+			 		<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+
+				</div>	
+			</div>
+					
+		</section>
+	</div>
+
+<!--books-->
+	<div class="conatiner contain row-bg" id="books">
+		<section>
+			
+			<h1><center>You can read your favourite books from here...</center> </h1>
+			<div class="row marg">
+<!--1st book-->
+				<div class="col-md-3">
+					<div class="flip-container">
+						<div class="flipper text-center" ontouchstart="this.classList.toggle('hover');">
+							<div class="front">
+								<img src="./images/elephant tree.jpg" class="img-border1" height="350px">
+							</div>
+							<div class="back text-center">
+								
+								<button class="btn btn-toggle btn-info"><a href="./book/elephant tree.pdf" style="color:red;font-size:20px;font-family:Cooper;">Click here to read...</a></button>
+								<img src="./images/Green-animated-arrow.gif" height="200px" width="100px">
+							</div>
+						</div>
+					</div>
+				</div>
+<!--2nd book-->
+				<div class="col-md-3">	
+					<div class="flip-container">
+						<div class="flipper text-center" ontouchstart="this.classList.toggle('hover');">
+							<div class="front">
+								<img src="./images/dictatorship to democracy.jpg" class="img-border1" height="350px">
+							</div>
+							<div class="back text-center">
+								
+								<button class="btn btn-toggle btn-info"><a href="./book/dictatorship to democracy .pdf" style="color:red;font-size:20px;font-family:Cooper;">Click here to read...</a></button>
+								<img src="./images/Green-animated-arrow.gif" height="200px" width="100px">
+							</div>
+						</div>
+					</div>
+				</div>
+<!--3rd book-->
+				<div class="col-md-3">	
+					<div class="flip-container">
+						<div class="flipper text-center" ontouchstart="this.classList.toggle('hover');">
+							<div class="front">
+								<img src="./images/daimon.jpg" class="img-border1" height="350px">
+							</div>
+							<div class="back text-center">
+								<button class="btn btn-toggle btn-info text-center"><a href="./book/demon.pdf" style="color:red;font-size:20px;font-family:Cooper;">Click here to read...</a></button>
+								<img src="./images/Green-animated-arrow.gif" height="200px" width="100px">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">	
+					<div class="flip-container">
+						<div class="flipper text-center" ontouchstart="this.classList.toggle('hover');">
+							<div class="front">
+								<img src="./images/take a breath.jpg" class="img-border1" height="350px">
+							</div>
+							<div class="back text-center">
+								
+								<button class="btn btn-toggle btn-info"><a href="./book/take a breath.pdf" style="color:red;font-size:20px;font-family:Cooper;">Click here to read...</a></button>
+								<img src="./images/Green-animated-arrow.gif" height="200px" width="100px">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+			<a href="next.html" class="btn btn-toggle btn-primary btn-lg">Next >>></a>
+	</div>
+<!--About us-->
+	<div class="container contain" id="about">
+		<section>
+			<h3>About us:</h3>
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-info-sign text-center">
+								</br></br>
+								<p> The operating system (prominent examples being Microsoft Windows, macOS and Linux), allows the parts of a computer to work together by performing tasks like transferring data between memory and disks or rendering output onto a display device. It provides a platform (hardware abstraction layer) to run high-level system software and application software.
+								</p></span>
+
+			</div>
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-ok-sign text-center"></br></br>
+					<p>A process in which a system regulates itself by monitoring its own output. That is, it “feeds back” part of its output to itself. Feedback is used to control machines; a heating system, for example, uses a thermostat to monitor and adjust its output. Feedback is also used by the human brain to control various muscles and joints.</p>
+				</span>
+			</div>
+			<div class="col-md-4">
+				<span class="glyphicon glyphicon-user text-center"></br></br>
+				<h4>Contact</h4>
+				<ul class="list-inline">
+					<li><a href="">Google+</a></li>
+					<li><a href="">Facebook</a></li>
+					<li><a href="">Twitter</a></li>
+				</ul></span>
+			</div>			
+		</section>
+	</div>
+
+
+<!--feedback-->
+	<div class="conatainer contain" id="feedback">
+		<section>
+			<div>
+				<center><h3>Feedback <small> Give your valuable suggestion...</small></h3></center></br>
+				<div class="row">
+					<div class="col-lg-4">
+						<img src="./images/feedback1.gif" height="350px" width="450px">
+					</div>
+					<div class="col-lg-8">
+						<form action="" class="form-horizontal">
+							<div class="form-group">
+								<label for="user-name" class="col-lg-2 control-label">Name</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="user-name" placeholder="Enter Your Name">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-lg-2 control-label">Email</label>
+								<div class="col-lg-10">
+									<input type="text" class="form-control" id="email" placeholder="Enter Your Email Id">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="message" class="col-lg-2 control-label">Message</label>
+								<div class="col-lg-10">
+									<textarea name="message" class="form-control"  placeholder="Enter Your Meaasge here..." cols="10" rows="10"></textarea>
+								</div>
+							</div>
+							<div class="col-lg-10 col-lg-offset-2">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+<!--Footer-->
+		<footer class="navbar-inverse">
+			<div class="container text-center contain">
+				<ul class="list-inline fooot">
+					<li><button class="btn btn-toggle btn-bg"><a href="http://www.facebook.com"><img src="./images/icon/fb.png" height="20px"></a></button></li>
+					<li><button class="btn btn-toggle btn-bg"><a href="http://www.gmail.com"><img src="./images/icon/gmail.png" height="20px"></a></button></li>
+					<li><button class="btn btn-toggle btn-bg"><a href="http://www.twitter.com"><img src="./images/icon/twitter icon.png" height="20px"></a></button></li></br>
+					<p> copyright &copy 2017</p>
+				</ul>
+			</div>
+
+		</footer>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>
